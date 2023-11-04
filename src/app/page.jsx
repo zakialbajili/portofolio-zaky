@@ -1,12 +1,4 @@
 import Image from 'next/image'
-import hero from '@/images/hero.png'
-import githubLogo from '@/images/github-logo.svg'
-import linkedinLogo from '@/images/linkedin-logo.svg'
-import instagramLogo from '@/images/instagram-logo.svg'
-import monitor from '@/images/monitor.svg'
-import todo from '@/images/list-checks.svg'
-import traveloku from '@/images/airplane-tilt.svg'
-import myanimelist from '@/images/screencast.svg'
 
 export default function Home() {
     return (
