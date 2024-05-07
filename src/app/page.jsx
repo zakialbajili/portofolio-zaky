@@ -1,5 +1,12 @@
 import Image from 'next/image'
-
+import hero from '../images/hero.png'
+import monitor from '../images/monitor.svg'
+import screencast from '../images/screencast.svg'
+import githubLogo from '../images/github-logo.svg'
+import airplaneTilt from '../images/airplane-tilt.svg'
+import instagramLogo from '../images/instagram-logo.svg'
+import linkedinLogo from '../images/linkedin-logo.svg'
+import listChecks from '../images/list-checks.svg'
 export default function Home() {
     return (
         <>
@@ -40,7 +47,7 @@ export default function Home() {
                                 Profil</a>
                         </div>
                         <div className="hidden md:flex md:justify-end grow pt-4 px-6 ">
-                            <Image src="https://storage.googleapis.com/portofolio_zaki/images/hero.png" alt="hero" width={450} height={450} className=" opacity-60" />
+                            <Image src={hero} alt="hero" width={450} height={450} className=" opacity-60" />
                         </div>
                     </div>
                 </div>
@@ -50,7 +57,7 @@ export default function Home() {
                         <h1 className="text-5xl font-bold text-center">Who am I?</h1>
                         <div className="flex flex-row flex-wrap place-content-center py-10 gap-4">
                             <div className="">
-                                <Image src="https://storage.googleapis.com/portofolio_zaki/images/hero.png" alt="profile" width={150} height={150}
+                                <Image src={hero} alt="profile" width={150} height={150}
                                     className="md:h-[200px] md:w-[200px] opacity-75 rounded-full shadow-2xl bg-color-greenMiddle" />
                             </div>
                             <div className="md:max-w-[30vw] px-4 text-justify">My name is Zaky Maulana Al Bajili and i am domiciled in Tangerang Regency, Indonesia. Currently, I am a student of Sultan Ageng Tirtayasa University majoring in Electrical Engineering. I have an interest in the world of Technology, especially in Web Development and Development Operations (DevOps). Some of the skills I currently have are HTML, CSS, Javascript, PHP, Laravel, React, Next.js, Express.js, and Google Cloud Platform.</div>
@@ -67,25 +74,25 @@ export default function Home() {
                             <div className="grow px-4 mt-[20px] grid grid-cols-2 gap-4 md:max-w-[40vw]">
                                 <a href="https://github.com/zakialbajili/monitoring_lux" className=" bg-gradient-to-t from-color-dark to-color-greenDark h-[30vh] rounded-md text-color-greenLow shadow-2xl flex flex-col place-content-center text-center hover:text-color-white py-5 px-2">
                                     <div className=" flex justify-center">
-                                     <Image src="https://storage.googleapis.com/portofolio_zaki/images/monitor.svg" height={96} width={96} alt='monitoring'/>
+                                    <Image src={monitor} height={96} width={96} alt='monitoring'/>
                                     </div>
                                     <div className="font-bold md:text-xl">REAL TIME MONITORING LIGHT INTESITY</div>
                                 </a>
                                 <a href="https://github.com/zakialbajili/cuyanimelist" className=" bg-gradient-to-t from-color-dark to-color-greenDark h-[30vh] rounded-md text-color-greenLow shadow-2xl flex flex-col place-content-center text-center hover:text-color-white py-5 px-2">
                                     <div className="flex justify-center">
-                                    <Image src="https://storage.googleapis.com/portofolio_zaki/images/screencast.svg" height={96} width={96} alt='myanimelist'/>
+                                    <Image src={screencast} height={96} width={96} alt='myanimelist'/>
                                     </div>
                                     <div className="font-bold md:text-xl">MY ANIME LIST</div>
                                 </a>
                                 <a href="https://github.com/zakialbajili/Todolist_Stechoq" className=" bg-gradient-to-t from-color-dark to-color-greenDark h-[30vh] rounded-md text-color-greenLow shadow-2xl flex flex-col place-content-center text-center hover:text-color-white py-5 px-2">
                                     <div className="flex justify-center">
-                                    <Image src="https://storage.googleapis.com/portofolio_zaki/images/list-checks.svg" height={96} width={96} alt='todo'/>
+                                    <Image src={listChecks} height={96} width={96} alt='todo'/>
                                     </div>
                                     <div className="font-bold md:text-xl">TO DO LIST</div>
                                 </a>
                                 <a href="https://github.com/zakialbajili/traveloku" className=" bg-gradient-to-t from-color-dark to-color-greenDark h-[30vh] rounded-md text-color-greenLow shadow-2xl flex flex-col place-content-center text-center hover:text-color-white py-5 px-2">
                                     <div className="flex justify-center">
-                                    <Image src="https://storage.googleapis.com/portofolio_zaki/images/airplane-tilt.svg" height={96} width={96} alt='traveloku'/>
+                                    <Image src={airplaneTilt} height={96} width={96} alt='traveloku'/>
                                     </div>
                                     <div className="font-bold md:text-xl">TRAVELOKU</div>
                                 </a>
@@ -102,13 +109,13 @@ export default function Home() {
                     <div className="px-5 flex flex-col ">
                         <div className=" flex flex-row justify-center gap-2">
                             <a href="https://github.com/zakialbajili" >
-                                <Image src="https://storage.googleapis.com/portofolio_zaki/images/github-logo.svg" alt="github-logo" width={35} height={35} />
+                                <Image src={githubLogo} alt="github-logo" width={35} height={35} />
                             </a>
                             <a href="https://www.linkedin.com/in/zakyalbajili10/">
-                                <Image src="https://storage.googleapis.com/portofolio_zaki/images/linkedin-logo.svg" alt="linkedin-logo" width={35} height={35} />
+                                <Image src={linkedinLogo} alt="linkedin-logo" width={35} height={35} />
                             </a>
                             <a href="https://www.instagram.com/zakialbajili/">
-                                <Image src="https://storage.googleapis.com/portofolio_zaki/images/instagram-logo.svg" alt="instagram-logo" width={35} height={35} />
+                                <Image src={linkedinLogo} alt="instagram-logo" width={35} height={35} />
                             </a>
                         </div>
                     </div>
