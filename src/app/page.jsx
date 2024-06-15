@@ -7,6 +7,7 @@ import airplaneTilt from '../images/airplane-tilt.svg'
 import instagramLogo from '../images/instagram-logo.svg'
 import linkedinLogo from '../images/linkedin-logo.svg'
 import listChecks from '../images/list-checks.svg'
+import TShirt from '../images/TShirt.svg'
 export default function Home() {
     return (
         <>
@@ -96,6 +97,12 @@ export default function Home() {
                                     </div>
                                     <div className="font-bold md:text-xl">TRAVELOKU</div>
                                 </a>
+                                <a href="https://github.com/Capstone-Bangkit-BeFitOutfit/BeFitOutfit-BE" className=" bg-gradient-to-t from-color-dark to-color-greenDark h-[30vh] rounded-md text-color-greenLow shadow-2xl flex flex-col place-content-center text-center hover:text-color-white py-5 px-2">
+                                    <div className="flex justify-center">
+                                    <Image src={TShirt} height={96} width={96} alt='befitoutdit'/>
+                                    </div>
+                                    <div className="font-bold md:text-xl">BEFITOUTFIT</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -115,7 +122,7 @@ export default function Home() {
                                 <Image src={linkedinLogo} alt="linkedin-logo" width={35} height={35} />
                             </a>
                             <a href="https://www.instagram.com/zakialbajili/">
-                                <Image src={linkedinLogo} alt="instagram-logo" width={35} height={35} />
+                                <Image src={instagramLogo} alt="instagram-logo" width={35} height={35} />
                             </a>
                         </div>
                     </div>
