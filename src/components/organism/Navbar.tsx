@@ -1,7 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ChartNoAxesGantt, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 export function NavbarDemo() {
   return (
@@ -13,10 +16,30 @@ export function NavbarDemo() {
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 w-full mx-auto z-50 bg-slate-600/30 backdrop-blur flex justify-center py-3", className)}
+      className={cn(`fixed top-10 inset-x-0 w-full mx-auto z-50 transition-all duration-300 ease-in-out  shadow-md
+        ${isScrolled ? "bg-gray-500/30 backdrop-blur":"bg-transparent"} flex justify-between lg:justify-evenly items-center py-3 px-5`, className)}
     >
+      <div className="flex items-center gap-3">
+        <Image src="/logo.png" alt="logo" width={50} height={50}/>
+      <h1 className="font-semibold text-3xl">Zaky</h1>
+      </div>
+      <div className="hidden lg:block">
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Services">
           <div className="flex flex-col space-y-4 text-sm">
@@ -63,6 +86,11 @@ function Navbar({ className }: { className?: string }) {
           </div>
         </MenuItem>
       </Menu>
+      </div>
+      <Link href={'/me'} className="hidden lg:flex py-3 px-4 rounded-full bg-color-softPurple hover:bg-color-darkPurple text-white items-center justify-center">
+        <p>Contact Me</p>
+      </Link>
+      <button className="block lg:hidden text-color-primerText"><ChartNoAxesGantt /></button>
     </div>
   );
 }
