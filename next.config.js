@@ -5,7 +5,8 @@ const nextConfig = {
             {
                 hostname: 'storage.googleapis.com'
             }
-        ]
+        ],
+        domains:["assets.aceternity.com"]
     }
 }
 module.exports = nextConfig
