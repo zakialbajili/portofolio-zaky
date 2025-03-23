@@ -32,12 +32,12 @@ function Navbar({ className }: { className?: string }) {
   }, []);
   return (
     <div
-      className={cn(`fixed top-10 inset-x-0 w-full mx-auto z-50 transition-all duration-300 ease-in-out  shadow-md
-        ${isScrolled ? "bg-gray-500/30 backdrop-blur":"bg-transparent"} flex justify-between lg:justify-evenly items-center py-3 px-5`, className)}
+      className={cn(`fixed top-10 inset-x-0 w-full mx-auto z-50 transition-all duration-300 ease-in-out
+        ${isScrolled ? "bg-gray-500/30 backdrop-blur shadow-md":"bg-transparent"} flex justify-between lg:justify-evenly items-center py-3 px-5`, className)}
     >
       <div className="flex items-center gap-3">
         <Image src="/logo.png" alt="logo" width={50} height={50}/>
-      <h1 className="font-semibold text-3xl">Zaky</h1>
+      <h1 className="font-thin text-2xl 2xl:text-3xl font-gabarito">Zaky</h1>
       </div>
       <div className="hidden lg:block">
       <Menu setActive={setActive}>
@@ -88,7 +88,7 @@ function Navbar({ className }: { className?: string }) {
       </Menu>
       </div>
       <Link href={'/me'} className="hidden lg:flex py-3 px-4 rounded-full bg-color-softPurple hover:bg-color-darkPurple text-white items-center justify-center">
-        <p>Contact Me</p>
+        <p className="text-sm 2xl:text-base">Contact Me</p>
       </Link>
       <button className="block lg:hidden text-color-primerText"><ChartNoAxesGantt /></button>
     </div>

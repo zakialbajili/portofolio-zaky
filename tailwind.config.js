@@ -85,7 +85,8 @@ module.exports = {
 				}
 			},
 			fontFamily:{
-				Mono:['Martian Mono', 'monospace']
+				Mono:['Martian Mono', 'monospace'],
+				gabarito:['Gabarito', 'sans']
 			}
 		},
 

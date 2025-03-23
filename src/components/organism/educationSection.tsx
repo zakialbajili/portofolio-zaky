@@ -15,15 +15,15 @@ const EducationSection = () => {
                 data-aos-easing="ease-in-sine"
                 className="h-fit w-full lg:w-[50%] bg-color-secondaryText/10 rounded-xl p-5"
             >
-              <div className="flex justify-center items-center gap-5 pb-3 border-b-[1px] border-color-primerText/50">
+              <div className="flex justify-center items-center gap-5 pb-3 border-b-[1px] border-color-primerText/30 font-gabarito">
                 <div className="bg-color-darkPurple p-3 rounded-full text-white">
                   <GraduationCap />
                 </div>
-                <h1 className="text-xl lg:text-3xl font-bold font-Mono text-color-darkPurple">
+                <h1 className="text-xl lg:text-3xl font-bold text-color-darkPurple">
                   Education
                 </h1>
               </div>
-              <div className="py-4 flex flex-col gap-3">
+              <div className="py-4 flex flex-col gap-3 font-gabarito">
                 <div className="flex justify-between gap-3 text-color-primerText">
                   <div>
                     <h1 className="text-md lg:text-2xl font-bold">
@@ -43,15 +43,15 @@ const EducationSection = () => {
                 data-aos-easing="ease-in-sine"
                 className="w-full lg:w-[50%] bg-color-secondaryText/10 rounded-xl p-5"
             >
-              <div className="flex justify-center items-center gap-5 pb-3 border-b-[1px] border-color-primerText/50">
+              <div className="flex justify-center items-center gap-5 pb-3 border-b-[1px] border-color-primerText/30 font-gabarito">
                 <div className="bg-color-darkPurple p-3 rounded-full text-white">
                   <BriefcaseBusiness />
                 </div>
-                <h1 className="text-xl lg:text-3xl font-bold font-Mono text-color-darkPurple text-center">
+                <h1 className="text-xl lg:text-3xl font-bold text-color-darkPurple text-center">
                   Work Experiences
                 </h1>
               </div>
-              <div className="py-4 flex flex-col gap-5">
+              <div className="py-4 flex flex-col gap-5 font-gabarito">
                 <div className="flex justify-between gap-3 text-color-primerText">
                   <div>
                     <h1 className="text-md lg:text-2xl font-bold">
@@ -61,7 +61,7 @@ const EducationSection = () => {
                       Fullstack Web Developer (Freelance)
                     </p>
                   </div>
-                  <p className="text-sm lg:text-base ">2024</p>
+                  <p className="text-sm lg:text-base ">2025</p>
                 </div>
                 <div className="flex justify-between gap-3 text-color-primerText">
                   <div>
