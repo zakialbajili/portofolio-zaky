@@ -31,7 +31,7 @@ const HeroHome = () => {
             alt="Profile"
             width={500}
             height={300}
-            className="w-[80vw] lg:w-[40vw] xl:w-[40vw] lg:max-h-[50vh] xl:max-w-[600px] h-fit mx-auto"
+            className="w-[80vw] lg:w-[40vw] xl:w-[30vw] lg:max-h-[55vh] xl:max-w-[600px] h-fit mx-auto"
           />
         </div>
         <div data-aos="zoom-in" className="absolute bottom-0 w-full">
@@ -43,7 +43,7 @@ const HeroHome = () => {
           texts={['Fullstack Web Developer']} 
           velocity={200} 
           numCopies={5}
-          className=" custom-scroll-text"
+          className="custom-scroll-text"
         />
       </div>
     </div>

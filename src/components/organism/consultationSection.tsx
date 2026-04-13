@@ -31,12 +31,6 @@ const ConsultationSection = () => {
           </div>
           <div className="flex items-center gap-5">
             <div className="flex items-center justify-center bg-white text-color-darkPurple h-10 w-10 rounded-full">
-              <Phone />
-            </div>
-            <p>0896-5426-0065</p>
-          </div>
-          <div className="flex items-center gap-5">
-            <div className="flex items-center justify-center bg-white text-color-darkPurple h-10 w-10 rounded-full">
               <Linkedin />
             </div>
             <p>zakyalbajili10</p>
