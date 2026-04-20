@@ -84,9 +84,11 @@ module.exports = {
 					subtleGray: "#F8F9FC"
 				}
 			},
-			fontFamily:{
-				Mono:['Martian Mono', 'monospace'],
-				gabarito:['Gabarito', 'sans']
+			fontFamily: {
+				// Mono:['Martian Mono', 'monospace'],
+				// gabarito:['Gabarito', 'sans']
+				gabarito: ['var(--font-gabarito)'],
+				Mono: ['var(--font-mono)'],
 			}
 		},
 
