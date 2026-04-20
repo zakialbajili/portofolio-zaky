@@ -53,6 +53,17 @@ const EducationSection = () => {
               </div>
               <div className="py-4 flex flex-col gap-5 font-gabarito">
                 <div className="flex justify-between gap-3 text-color-primerText">
+                  <div className="text-nowrap">
+                    <h1 className="text-md lg:text-2xl font-bold">
+                      PT. Superkrane Mitra Utama, Tbk.
+                    </h1>
+                    <p className="text-xs lg:text-base text-color-secondaryText">
+                      IT Developer
+                    </p>
+                  </div>
+                  <p className="text-sm lg:text-base text-pretty">2025 - Present</p>
+                </div>
+                <div className="flex justify-between gap-3 text-color-primerText">
                   <div>
                     <h1 className="text-md lg:text-2xl font-bold">
                       Candidax Consultant
