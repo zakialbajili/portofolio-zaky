@@ -1,0 +1,40 @@
+name: Deploy Next.js to VPS
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          key: ${{ secrets.SSH_KEY }}
+
+          script: |
+            cd ${{ secrets.PATH_PORTO }}
+
+            # Pull latest code
+            git pull origin main
+
+            # Stop container lama
+            docker compose down
+
+            # Build dan Jalankan container
+            docker compose up -d --build
