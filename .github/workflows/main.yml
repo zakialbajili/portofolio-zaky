@@ -31,7 +31,7 @@ jobs:
             cd ${{ secrets.PATH_PORTO }}
 
             # Pull latest code
-            git pull origin main
+            git pull origin master
 
             # Stop container lama
             docker compose down
