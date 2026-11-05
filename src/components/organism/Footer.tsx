@@ -1,6 +1,7 @@
-import { Instagram, Linkedin, Mail, Phone } from "lucide-react";
-import Image from "next/image";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
@@ -12,14 +13,9 @@ const Footer = () => {
         <div className="py-5 flex flex-col lg:flex-row justify-between gap-y-5 gap-x-10">
           <div className="flex-grow lg:w-1/3 flex flex-col gap-5 text-color-primerText">
             <div className="flex items-center gap-3">
-              <div className="rounded-full p-1 bg-color-darkPurple">
-                <Image
-                  src="/logo_zaky.webp"
-                  alt="logo"
-                  width={30}
-                  height={30}
-                />
-              </div>
+              <Avatar className="h-10 w-10 bg-color-darkPurple p-1">
+                <AvatarImage src="/logo_zaky.webp" alt="logo" />
+              </Avatar>
               <h2 className="font-thin text-2xl 2xl:text-3xl font-gabarito">
                 Zaky Maulana Al Bajili
               </h2>
@@ -31,31 +27,29 @@ const Footer = () => {
               earum harum nulla? Soluta, sequi!
             </p>
             <div className="flex gap-3">
-              <Link
-                href={"mailto:zakyalbajili10@gmail.com"}
-                className="flex items-center justify-center bg-color-darkPurple hover:bg-color-softPurple text-white h-10 w-10 rounded-full"
-              >
-                <Mail />
-              </Link>
-              <Link
-                href={"https://www.linkedin.com/in/zakyalbajili10"}
-                className="flex items-center justify-center bg-color-darkPurple hover:bg-color-softPurple text-white h-10 w-10 rounded-full"
-              >
-                <Linkedin />
-              </Link>
-              <Link
-                href={"https://www.instagram.com/zakialbajili"}
-                className="flex items-center justify-center bg-color-darkPurple hover:bg-color-softPurple text-white h-10 w-10 rounded-full"
-              >
-                <Instagram />
-              </Link>
+              <Button asChild variant="default" size="icon" aria-label="Email">
+                <Link href={"mailto:zakyalbajili10@gmail.com"}>
+                  <Mail />
+                </Link>
+              </Button>
+              <Button asChild variant="default" size="icon" aria-label="LinkedIn">
+                <Link href={"https://www.linkedin.com/in/zakyalbajili10"}>
+                  <Linkedin />
+                </Link>
+              </Button>
+              <Button asChild variant="default" size="icon" aria-label="Instagram">
+                <Link href={"https://www.instagram.com/zakialbajili"}>
+                  <Instagram />
+                </Link>
+              </Button>
             </div>
           </div>
           <div className="flex-grow lg:w-1/3  flex flex-col gap-5 text-color-secondaryText">
             <h2 className="font-semibold text-color-darkPurple">Navigation</h2>
-            <Link href={"/me"}>Home</Link>
-            <Link href={"/me"}>Projects</Link>
-            <Link href={"/me"}>Contact</Link>
+            <Link href={"/"}>Home</Link>
+            <Link href={"/about"}>About</Link>
+            <Link href={"/projects"}>Projects</Link>
+            <Link href={"/contact"}>Contact</Link>
           </div>
           <div className="flex-grow lg:w-1/3  flex flex-col gap-5 text-color-secondaryText">
             <h2 className="font-semibold text-color-darkPurple">Contact</h2>

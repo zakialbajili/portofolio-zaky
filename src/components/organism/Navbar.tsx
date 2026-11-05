@@ -1,10 +1,19 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { ChartNoAxesGantt, ExternalLink } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { ChartNoAxesGantt } from "lucide-react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+
+const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Experience", href: "/experience" },
+  { label: "Projects", href: "/projects" },
+];
 
 export function NavbarDemo() {
   return (
@@ -15,21 +24,21 @@ export function NavbarDemo() {
 }
 
 function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <div
       className={cn(
@@ -39,69 +48,66 @@ function Navbar({ className }: { className?: string }) {
       )}
     >
       <div className="flex items-center gap-3">
-        <Link href={"/#"} className="rounded-full bg-color-softPurple p-1 hover:bg-color-darkPurple">
+        <Link href={"/"} className="rounded-full bg-color-softPurple p-1 hover:bg-color-darkPurple">
           <Image src="/logo_zaky.webp" alt="logo" width={30} height={30} />
         </Link>
       </div>
-      <div className="hidden lg:block">
-        <Menu setActive={setActive}>
-          <MenuItem setActive={setActive} active={active} item="Services">
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/web-dev">Web Development</HoveredLink>
-              <HoveredLink href="/interface-design">
-                Interface Design
-              </HoveredLink>
-              <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-              <HoveredLink href="/branding">Branding</HoveredLink>
-            </div>
-          </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Products">
-            <div className="  text-sm grid grid-cols-2 gap-10 p-4">
-              <ProductItem
-                title="Algochurn"
-                href="https://algochurn.com"
-                src="https://assets.aceternity.com/demos/algochurn.webp"
-                description="Prepare for tech interviews like never before."
-              />
-              <ProductItem
-                title="Tailwind Master Kit"
-                href="https://tailwindmasterkit.com"
-                src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-                description="Production ready Tailwind css components for your next project"
-              />
-              <ProductItem
-                title="Moonbeam"
-                href="https://gomoonbeam.com"
-                src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png"
-                description="Never write from scratch again. Go from idea to blog in minutes."
-              />
-              <ProductItem
-                title="Rogue"
-                href="https://userogue.com"
-                src="https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png"
-                description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
-              />
-            </div>
-          </MenuItem>
-          <MenuItem setActive={setActive} active={active} item="Pricing">
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/hobby">Hobby</HoveredLink>
-              <HoveredLink href="/individual">Individual</HoveredLink>
-              <HoveredLink href="/team">Team</HoveredLink>
-              <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-            </div>
-          </MenuItem>
-        </Menu>
-      </div>
-      <Link
-        href={"/me"}
-        className="hidden lg:flex py-3 px-4 rounded-full bg-color-darkPurple hover:bg-color-softPurple text-white items-center justify-center"
+      <nav className="hidden lg:flex items-center gap-6 font-gabarito">
+        {NAV_LINKS.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={cn(
+              "text-sm 2xl:text-base transition-colors",
+              isActive(link.href)
+                ? "text-color-softPurple font-semibold"
+                : "text-color-softPurple hover:text-color-softPurple",
+            )}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
+      <Button
+        asChild
+        variant="default"
+        className="hidden lg:inline-flex h-fit py-3 px-4 font-gabarito"
       >
-        <p className="text-sm 2xl:text-base">Contact Me</p>
-      </Link>
-      <button className="block lg:hidden text-color-primerText">
-        <ChartNoAxesGantt />
-      </button>
+        <Link href={"/contact"}>
+          <p className="text-sm 2xl:text-base">Contact Me</p>
+        </Link>
+      </Button>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon" className="block lg:hidden text-color-primerText">
+            <ChartNoAxesGantt />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right" className="w-[80%] sm:max-w-sm">
+          <SheetHeader>
+            <SheetTitle className="font-gabarito text-color-darkPurple">Menu</SheetTitle>
+          </SheetHeader>
+          <nav className="flex flex-col gap-4 pt-6 font-gabarito">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-lg font-medium",
+                  isActive(link.href)
+                    ? "text-color-softPurple"
+                    : "text-color-primerText hover:text-color-softPurple",
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link href="/contact" className="text-lg font-medium text-color-softPurple">
+              Contact Me
+            </Link>
+          </nav>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }

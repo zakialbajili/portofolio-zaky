@@ -18,7 +18,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${gabarito.variable} ${martianMono.variable}`}>{children}</body>
+      <body className={`${inter.className} ${gabarito.variable} ${martianMono.variable}`}>
+        {children}
+      </body>
     </html>
   )
 }
