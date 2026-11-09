@@ -1,13 +1,23 @@
-version: '3.8'
-
 services:
   nextjs-app:
-    container_name: nextjs-app
+    container_name: portofolio-zaky
     build: .
-    ports:
-      - "3000:3000"
+    expose:
+      - "${PORT}"
+    environment:
+      HOSTNAME: "${HOSTNAME}"
+      PORT: ${PORT}
+      SESSION_SECRET: ${SESSION_SECRET}
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
     restart: always
+    networks:
+      - infra
     volumes:
       - ./data:/app/data
     env_file:
       - .env
+
+networks:
+  infra:
+    external: true

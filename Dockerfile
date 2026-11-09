@@ -1,26 +1,31 @@
 # Stage 1: Builder
-FROM node:22-alpine AS builder
+FROM node:22-alpine AS base
+
+FROM base as builder
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+COPY package*.json package-lock.json ./
 
-COPY . .
+RUN npm ci
+
+COPY src ./src
+COPY public ./public
+COPY next.config.js .
+COPY tsconfig.json .
+COPY postcss.config.js .
+COPY tailwind.config.js .
+
 RUN npm run build
 
 # Stage 2: Production
-FROM node:22-alpine
+FROM base as runner
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install --omit=dev
-
-COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
 ENV NODE_ENV=production
 
-EXPOSE 3000
-
-CMD ["npm", "start"]
+CMD ["node", "server.js"]
